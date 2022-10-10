@@ -6,7 +6,7 @@ porta = porta()
 class janela():
     def __init__(self):
         self.janelaInterfone = Tk()
-        self.janelaInterfone.title("Porta 01 de acesso do Edificio")
+        self.janelaInterfone.title("Porta de acesso ao Prédio")
         self.button1 = Button(self.janelaInterfone, text = "Falar com o apto 101",command= lambda: self.abrirChat("101"))
         self.button1.grid(column=0, row=0, padx=10, pady=10)
         self.button2 = Button(self.janelaInterfone, text="Falar com o apto 102",command= lambda: self.abrirChat("102"))
@@ -50,6 +50,7 @@ class janela():
                     self.chatMorador1['text'] = ''
                     self.chatMorador2['text'] = ''
                     self.chatMorador3['text'] = ''
+                self.entradaMorador.delete(0,END)
             def enviaMensagemVisitante():
                 if (self.chatVisitante0['text'] == ""):
                     self.chatVisitante0['text'] = mensagem
@@ -64,16 +65,17 @@ class janela():
                     self.chatVisitante1['text'] = ''
                     self.chatVisitante2['text'] = ''
                     self.chatVisitante3['text'] = ''
+                self.entradaVisitante.delete(0,END)
 
             enviaMensagemMorador()
             enviaMensagemVisitante()
 
         self.janelaMorador = Tk()
         self.janelaMorador.title("Interfone da porta do edifício")
-        self.janelaMorador.geometry("600x250")
+        self.janelaMorador.geometry("700x250")
         self.janelaVisitante = Tk()
         self.janelaVisitante.title("Apartamento" + apto)
-        self.janelaVisitante.geometry("600x250")
+        self.janelaVisitante.geometry("700x250")
 
         self.chatMorador = Label(self.janelaMorador, text='Apartamento '+apto+": ")
         self.chatMorador.grid(column=0, row=0, padx=10, pady=10)
